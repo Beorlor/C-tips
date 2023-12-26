@@ -16,6 +16,11 @@
 // $>./g_diam "1-2 2-3 4-5 5-6 6-7 7-8 9-13 13-10 10-2 10-11 11-12 12-8 16-4 16-11 21-8 21-12 18-10 18-13 21-18" | cat -e
 // 15$
 
+// Normaly this is a graph problem that you solve with a deep first search but
+// i wanted to try to solve anywith with dynamic programming
+// note : this program doesnt manage the edge case where there is only one node ("1-1")
+// and it act like the input is always well formated
+
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -92,7 +97,7 @@ void    setup(int *left, int *right, int size)
         recursive(1, &solution, size, right[i], list, left, right);
         i++;
     }
-    printf("Solution is : %d\n", solution + 2);
+    printf("Solution is : %d\n", solution + 1);
     fflush(stdout);
 }
 
