@@ -19,9 +19,45 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 char	**ft_split(char *str, char *charset);
 int	ft_atoi(char *str);
+
+bool    test(int index_test, int pos, int linker, int *new_link, int *list, int *left, int *right)
+{
+    int i = 0;
+
+    //does it have a linker
+    if (left[index_test] == linker)
+    {
+        *new_link = right[index_test];
+    }
+    else if (right[index_test] == linker)
+    {
+        *new_link = left[index_test];
+    }
+    else
+    {
+        return false;
+    }
+    //index pas deja utiliser (list)
+    while (i < pos)
+    {
+        if (list[i] == index_test)
+            return false;
+        i++;
+    }
+    i = 0;
+    //le chiffre non linker de lindex pas deja utiliser ailleurs
+    while (i < pos)
+    {
+        if (left[list[i]] == *new_link || right[list[i]] == *new_link)
+            return false;
+        i++;
+    }
+    return true;
+}
 
 void    recursive(int pos, int *solution, int size, int linker, int *list, int *left, int *right)
 {
@@ -32,14 +68,14 @@ void    recursive(int pos, int *solution, int size, int linker, int *list, int *
     fflush(stdout);
     if (pos > *solution)
         *solution = pos;
-
     while (i < size)
     {
-        if (test())
+        if (test(i, pos, linker, &new_link, list, left, right))
         {
             list[pos] = i;
             recursive(pos+1, solution, size, new_link, list, left, right);
         }
+        i++;
     }
 }
 
@@ -54,7 +90,10 @@ void    setup(int *left, int *right, int size)
         list[0] = i;
         recursive(1, &solution, size, left[i], list, left, right);
         recursive(1, &solution, size, right[i], list, left, right);
+        i++;
     }
+    printf("Solution is : %d\n", solution + 2);
+    fflush(stdout);
 }
 
 int main(int argc, char *argv[])
@@ -139,6 +178,19 @@ int	count_word(char *str, char *charset)
 		i++;
 	}
 	return (word_count);
+}
+
+void	write_letter(char *word, char *str, char *charset)
+{
+	int	i;
+
+	i = 0;
+	while (!(is_separator(str[i], charset)))
+	{
+		word[i] = str[i];
+		i++;
+	}
+	word[i] = '\0';
 }
 
 void	write_word(char **arr_word, char *str, char *charset)
