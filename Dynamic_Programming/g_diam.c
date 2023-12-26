@@ -17,7 +17,7 @@
 // 15$
 
 // Normaly this is a graph problem that you solve with a deep first search but
-// i wanted to try to solve anywith with dynamic programming
+// i wanted to try to solve anything with dynamic programming
 // this program does manage the edge case where there is only one node ("1-1")
 // note : it act like the input is always well formated
 
