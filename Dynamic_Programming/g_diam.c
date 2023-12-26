@@ -18,8 +18,8 @@
 
 // Normaly this is a graph problem that you solve with a deep first search but
 // i wanted to try to solve anywith with dynamic programming
-// note : this program doesnt manage the edge case where there is only one node ("1-1")
-// and it act like the input is always well formated
+// this program does manage the edge case where there is only one node ("1-1")
+// note : it act like the input is always well formated
 
 #include <unistd.h>
 #include <stdio.h>
@@ -92,9 +92,12 @@ void    setup(int *left, int *right, int size)
 
     while (i < size)
     {
-        list[0] = i;
-        recursive(1, &solution, size, left[i], list, left, right);
-        recursive(1, &solution, size, right[i], list, left, right);
+        if (left[i] != right[i])
+        {
+            list[0] = i;
+            recursive(1, &solution, size, left[i], list, left, right);
+            recursive(1, &solution, size, right[i], list, left, right);
+        }
         i++;
     }
     printf("Solution is : %d\n", solution + 1);
