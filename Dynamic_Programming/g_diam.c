@@ -100,6 +100,7 @@ void    setup(int *left, int *right, int size)
         }
         i++;
     }
+    //+1 to solution cause we ignore the starting node
     printf("Solution is : %d\n", solution + 1);
     fflush(stdout);
 }
