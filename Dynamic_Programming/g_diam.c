@@ -69,8 +69,8 @@ void    recursive(int pos, int *solution, int size, int linker, int *list, int *
     int i = 0;
     int new_link = 0;
 
-    printf("%d\n", pos);
-    fflush(stdout);
+    //printf("%d\n", pos);
+    //fflush(stdout);
     if (pos > *solution)
         *solution = pos;
     while (i < size)
