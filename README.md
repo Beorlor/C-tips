@@ -8,10 +8,9 @@ For exemple there is no Fork folder cause ive worked enough on this
 in other project, like Pipex, Minishell or Philosopher.
 
 To Do :
--dynamic - g_diams
 -Fork_Pipe
 -HashMap
--Graph Traversals - BFS & DFS -Breadth First Search and Depth  First Search
+-Graph Traversals - BFS & DFS -Breadth First Search and Depth  First Search (g_diams)
 
 -Malloc
 -Daemon
