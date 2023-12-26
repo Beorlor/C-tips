@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
 
     if (argc == 2)
     {
+        //parsing
         char    **split = ft_split(argv[1], " -");
         while (split[i])
             i++;
@@ -122,6 +123,7 @@ int main(int argc, char *argv[])
             right[j] = ft_atoi(split[(j * 2) + 1]);
             j++;
         }
+        //resolution
         setup(left, right, i/2);
     }
     return EXIT_SUCCESS;
