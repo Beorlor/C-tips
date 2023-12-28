@@ -129,7 +129,8 @@ int main(int argc, char *argv[]) {
 }
 
 /////////////////// PARSING /////////////////////////////////////////////////
-bool parse_input(char *input, int **left, int **right, int *size) {
+bool parse_input(char *input, int **left, int **right, int *size)
+{
     int i = 0;
     char **split;
 
