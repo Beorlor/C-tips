@@ -6,11 +6,11 @@ The list is not exaushtiv cause its for me to remenber certain thing.
 
 For exemple there is no Fork folder cause ive worked enough on this
 in other project, like Pipex, Minishell or Philosopher.
+Same for graph, ect...
 
 To Do :
 -Fork_Pipe
 -HashMap
--Graph Traversals - BFS & DFS -Breadth First Search and Depth  First Search (g_diams)
 
 -Malloc
 -Daemon

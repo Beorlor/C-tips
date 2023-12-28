@@ -16,18 +16,21 @@
 // $>./g_diam "1-2 2-3 4-5 5-6 6-7 7-8 9-13 13-10 10-2 10-11 11-12 12-8 16-4 16-11 21-8 21-12 18-10 18-13 21-18" | cat -e
 // 15$
 
-// Normaly this is a graph problem that you solve with a deep first search but
 // i wanted to try to solve anything with dynamic programming
 // this program does manage the edge case where there is only one node ("1-1")
-// note : it act like the input is always well formated
+// Note: The program assumes that the input is always well-formatted. It stores graph
+// information as two arrays of nodes representing the edges, instead of using an adjacency
+// matrix or adjacency list, to focus on enhancing dynamic programming techniques.
 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
+bool parse_input(char *input, int **left, int **right, int *size);
 char	**ft_split(char *str, char *charset);
 int	ft_atoi(char *str);
+void    free_split(char **split);
 
 bool    test(int index_test, int pos, int linker, int *new_link, int *list, int *left, int *right)
 {
@@ -90,6 +93,7 @@ void    setup(int *left, int *right, int size)
     int solution = 0;
     int i = 0;
 
+    //testing each starting position
     while (i < size)
     {
         if (left[i] != right[i])
@@ -105,32 +109,80 @@ void    setup(int *left, int *right, int size)
     fflush(stdout);
 }
 
-int main(int argc, char *argv[])
-{
-    int i = 0;
-    int j = 0;
+int main(int argc, char *argv[]) {
+    int *left;
+    int *right;
+    int size;
 
     if (argc == 2)
     {
-        //parsing
-        char    **split = ft_split(argv[1], " -");
-        while (split[i])
-            i++;
-        int *left = (int *)malloc(sizeof(int) * (i / 2));
-        int *right = (int *)malloc(sizeof(int) * (i / 2));
-        while (j < i / 2)
-        {
-            left[j] = ft_atoi(split[j * 2]);
-            right[j] = ft_atoi(split[(j * 2) + 1]);
-            j++;
-        }
-        //resolution
-        setup(left, right, i/2);
+        if (!parse_input(argv[1], &left, &right, &size))
+            return EXIT_FAILURE;
+        setup(left, right, size);
+        free(left);
+        free(right);
     }
+    else
+        printf("\n");
+
     return EXIT_SUCCESS;
 }
 
 /////////////////// PARSING /////////////////////////////////////////////////
+bool parse_input(char *input, int **left, int **right, int *size) {
+    int i = 0;
+    char **split;
+
+    split = ft_split(input, " -");
+    if (!split)
+    {
+        fprintf(stderr, "Memory allocation failed\n");
+        return false;
+    }
+
+    while (split[i])
+        i++;
+
+    *size = i / 2;
+
+    *left = (int *)malloc(sizeof(int) * (*size));
+    if (!(*left))
+    {
+        free_split(split);
+        return false;
+    }
+
+    *right = (int *)malloc(sizeof(int) * (*size));
+    if (!(*right))
+    {
+        free(*left);
+        free_split(split);
+        return false;
+    }
+
+    for (int j = 0; j < *size; j++)
+    {
+        (*left)[j] = ft_atoi(split[j * 2]);
+        (*right)[j] = ft_atoi(split[(j * 2) + 1]);
+    }
+
+    free_split(split);
+    return true;
+}
+
+
+void    free_split(char **split)
+{
+    if (split)
+    {
+        for (int i = 0; split[i]; i++)
+        {
+            free(split[i]);
+        }
+        free(split);
+    }
+}
+
 int	ft_atoi(char *str)
 {
 	int	i;
@@ -237,7 +289,21 @@ char	**ft_split(char *str, char *charset)
 
 	word_count = count_word(str, charset);
 	arr_word = (char**)malloc(sizeof(char*) * (word_count + 1));
-	arr_word[word_count] = 0;
+    if (!arr_word)
+        return NULL;
+    for (int i = 0; i < word_count + 1; i++)
+    {
+        arr_word[i] = NULL;
+    }
 	write_word(arr_word, str, charset);
+    // Check if any malloc inside write_word failed
+    for (int i = 0; i < word_count; i++)
+    {
+        if (!arr_word[i])
+        {
+            free_split(arr_word);
+            return NULL;
+        }
+    }
 	return (arr_word);
 }
