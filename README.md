@@ -11,6 +11,7 @@ Same for graph, ect...
 To Do :
 -Fork_Pipe
 -HashMap
+-Threads
 
 -Malloc
 -Daemon
