@@ -11,9 +11,10 @@ Same for graph, ect...
 To Do :
 -Fork_Pipe
 -HashMap
+-Malloc
 -Threads
 
--Malloc
+-makefile -- library (use already compile code in our code)
 -Networking
 
 -Daemon
