@@ -14,8 +14,10 @@ To Do :
 -Malloc
 -Threads
 
--makefile -- library (use already compile code in our code)
+-makefile
+-library static and dynamic
 -Networking
+-Enum
 
 -Daemon
 -Telnet
