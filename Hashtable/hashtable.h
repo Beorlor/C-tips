@@ -18,7 +18,7 @@ typedef struct entry {
 
 typedef struct _hash_table {
     uint32_t size;
-    hashFunction hash; //*hash
+    hashFunction hash;
     entry **elements;
 } hash_table;
 
