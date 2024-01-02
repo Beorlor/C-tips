@@ -1,6 +1,3 @@
-//We can deal with collision with chain Hashing or linear probing or quadratic probing or double hashing
-//In C++ (std::unordered_map and std::unordered_set) use separate chaining, load factor, rehashing
-
 #include "hashtable.h"
 
 static size_t hash_table_index(hash_table *ht, const char *key) {
