@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 typedef uint64_t (*hashFunction)(const char*, size_t);
 typedef struct _hash_table hash_table;
@@ -20,7 +22,7 @@ typedef struct _hash_table {
     entry **elements;
 } hash_table;
 
-hash_table *hash_table_create(uint32_t size, hashFunction *hf);
+hash_table *hash_table_create(uint32_t size, hashFunction hf);
 void hash_table_destroy(hash_table *ht);
 void hash_table_print(hash_table *ht);
 bool hash_table_insert(hash_table *ht, const char *key, void *obj);

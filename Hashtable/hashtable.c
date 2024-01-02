@@ -1,14 +1,14 @@
 //We can deal with collision with chain Hashing or linear probing or quadratic probing or double hashing
 //In C++ (std::unordered_map and std::unordered_set) use separate chaining, load factor, rehashing
 
-#include "Hashtable.h"
+#include "hashtable.h"
 
 static size_t hash_table_index(hash_table *ht, const char *key) {
     size_t result = (ht->hash(key, strlen(key)) % ht->size);
     return result;
 }
 
-hash_table *hash_table_create(uint32_t size, hashFunction *hf) {
+hash_table *hash_table_create(uint32_t size, hashFunction hf) {
     hash_table *ht = malloc(sizeof(*ht));
     ht->size = size;
     ht->hash = hf;
@@ -74,3 +74,29 @@ void *hash_table_lookup(hash_table *ht, const char *key) {
     return tmp->object;
 }
 
+void *hash_table_delete(hash_table *ht, const char *key) {
+    if (key == NULL || ht == NULL) return NULL;
+    size_t index = hash_table_index(ht, key);
+
+    entry *tmp = ht->elements[index];
+    entry *prev = NULL;
+    while (tmp != NULL && strcmp(tmp->key, key) != 0) {
+        prev = tmp;
+        tmp = tmp->next;
+    }
+
+    if (tmp == NULL) return NULL; // Key not found
+
+    if (prev == NULL) {
+        // Deleting the head of the list
+        ht->elements[index] = tmp->next;
+    } else {
+        // Deleting from somewhere not the head
+        prev->next = tmp->next;
+    }
+
+    void *result = tmp->object;
+    free(tmp->key); // Assuming that the key was dynamically allocated
+    free(tmp);
+    return result;
+}
