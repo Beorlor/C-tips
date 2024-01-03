@@ -25,7 +25,7 @@ void hash_table_print(hash_table *ht) {
     for (uint32_t i = 0; i < ht->size; i++) {
         if (ht->elements[i] == NULL) {
             // do we want to print out null entries?
-            printf("\t[%u]\t---\n", i);
+            //printf("\t[%u]\t---\n", i);
         } else {
             printf("\t[%u]\t", i);
             entry *tmp = ht->elements[i];

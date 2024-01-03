@@ -8,9 +8,12 @@ For exemple there is no Fork folder cause ive worked enough on this
 in other project, like Pipex, Minishell or Philosopher.
 Same for graph, ect...
 
+Hashtable is readdy to use for your c project
+with documentation
+(link)
+
 To Do :
--Fork_Pipe
--HashMap
+-Fork_Pipes
 -Malloc
 -Threads
 
