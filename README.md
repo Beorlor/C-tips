@@ -10,6 +10,9 @@ Same for graph, ect...
 
 If a folder doesnt have a README, all the info are in commentary in the code itself
 
+The code is not made to be reuse like it is, but act more as a reminder.
+Except Hashtable which is a library ready to use
+
 Hashtable is readdy to use for your c project
 with documentation
 (link)
