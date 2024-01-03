@@ -1,6 +1,6 @@
 # C Hashtable Implementation
 
-This project is a custom implementation of a Hashtable in C. It primarily uses separate chaining to handle collisions but does not implement load factor management or rehashing. The project includes a static library, a dynamic library, and a test program to demonstrate the library's capabilities.
+This project is a custom implementation of a `Hashtable` in C. It primarily uses separate chaining to handle collisions but does not implement load factor management or rehashing. The project includes a `static library`, a `dynamic library`, and a `test program` to demonstrate the library's capabilities.
 
 ## Features
 
