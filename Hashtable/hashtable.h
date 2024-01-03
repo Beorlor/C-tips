@@ -8,6 +8,7 @@
 #include <stdio.h>
 
 typedef uint64_t (*hashFunction)(const char*, size_t);
+typedef void (*cleanupfunction)(void *);
 typedef struct _hash_table hash_table;
 
 typedef struct entry {
@@ -16,13 +17,14 @@ typedef struct entry {
     struct entry *next;
 } entry;
 
-typedef struct _hash_table {
+struct _hash_table {
     uint32_t size;
     hashFunction hash;
+    cleanupfunction cleanup;
     entry **elements;
-} hash_table;
+};
 
-hash_table *hash_table_create(uint32_t size, hashFunction hf);
+hash_table *hash_table_create(uint32_t size, hashFunction hf, cleanupfunction cf);
 void hash_table_destroy(hash_table *ht);
 void hash_table_print(hash_table *ht);
 bool hash_table_insert(hash_table *ht, const char *key, void *obj);

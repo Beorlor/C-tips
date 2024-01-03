@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     uint32_t num_guesses = atol(argv[2]);
 
     const int tablesize = (1<<20);
-    hash_table *table = hash_table_create(tablesize, hash);
+    hash_table *table = hash_table_create(tablesize, hash, NULL);
 
     FILE *fp = fopen(filename, "r");
     char buffer[MAX_LINE];
@@ -58,4 +58,5 @@ int main(int argc, char **argv) {
         }
     }
     printf("%u out of %u guesses were in the table\n", good_guesses, num_guesses);
+    hash_table_destroy(table);
 }

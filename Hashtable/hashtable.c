@@ -5,10 +5,15 @@ static size_t hash_table_index(hash_table *ht, const char *key) {
     return result;
 }
 
-hash_table *hash_table_create(uint32_t size, hashFunction hf) {
+//pass in NULL cf for default free behavior
+hash_table *hash_table_create(uint32_t size, hashFunction hf, cleanupfunction cf) {
     hash_table *ht = malloc(sizeof(*ht));
     ht->size = size;
     ht->hash = hf;
+    if (cf)
+        ht->cleanup = cf;
+    else
+        ht->cleanup = free;
     // note that calloc zeros out the memory
     ht->elements = calloc(sizeof(entry*), ht->size);
     return ht;
@@ -16,6 +21,16 @@ hash_table *hash_table_create(uint32_t size, hashFunction hf) {
 
 void hash_table_destroy(hash_table *ht)
 {
+    for (uint32_t i = 0; i < ht->size; i++) {
+        while (ht->elements[i]) {
+            entry *tmp = ht->elements[i];
+            ht->elements[i] = ht->elements[i]->next;
+            free(tmp->key);
+            ht->cleanup(tmp->object);
+            free(tmp);
+        }
+    }
+    
     free(ht->elements);
     free(ht);
 }
@@ -48,8 +63,7 @@ bool hash_table_insert(hash_table *ht, const char *key, void *obj) {
     // create a new entry
     entry *e = malloc(sizeof(*e));
     e->object = obj;
-    e->key = malloc(strlen(key)+1);
-    strcpy(e->key, key);
+    e->key = strdup(key);
 
     // insert entry
     e->next = ht->elements[index];
