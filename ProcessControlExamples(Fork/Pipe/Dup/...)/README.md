@@ -34,7 +34,7 @@ Replace `fork.c` with the name of the file you wish to compile and run.
 
 This repository is created for educational purposes and to provide practical examples for students and programmers learning about process control in Unix-like operating systems.
 
-Special thanks to [Herbie Vine](https://twitter.com/herbievine) for the examples and [Reactive](https://reactive.so/post/42-a-comprehensive-guide-to-pipex) for the comprehensive guide to pipex.
+Special thanks to [Herbie Vine](https://twitter.com/herbievine) for the examples from (https://reactive.so/post/42-a-comprehensive-guide-to-pipex) pipex guide.
 
 ---
 
