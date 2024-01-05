@@ -6,17 +6,19 @@ Welcome to the C-tips repository! This is a personal collection of C programming
 ## Contents Overview
 - **General Tips**: Various tips and tricks in C programming, each within its own folder.
 - **Code Comments**: For folders without a README, explanations are provided as comments within the code.
-- **Hashtable**: A ready-to-use library for C projects. [Documentation here](#).
+
+## Hashtable
+- **Hashtable**: A comprehensive, ready-to-use library for C projects. [Documentation here](#).
 
 ## Current Tips
-- **Single Bit Manipulation and Bitmaps**: Techniques for efficient bit-level operations.
-- **Dynamic Programming**: Strategies for solving complex problems by breaking them down into simpler subproblems.
-- **Inline Keyword**: Usage of `inline` for optimizing function calls.
-- **Process Control Examples**: Demonstrations of process creation and management.
-- **Static Variable**: Understanding and using static variables in C.
-- **Union Usage**: Utilizing unions for hardware register representation or simulating polymorphism.
-- **Variadic Functions**: Examples of functions handling variable number of arguments, similar to `printf`.
-- **Volatile Keyword**: Explaining the use of `volatile` for special variable conditions.
+- [**Single Bit Manipulation and Bitmaps**](https://github.com/Beorlor/C-tips/tree/main/Bit_Manipulation): Techniques for efficient bit-level operations.
+- [**Dynamic Programming**](https://github.com/Beorlor/C-tips/tree/main/Dynamic_Programming): Strategies for solving complex problems by breaking them down into simpler subproblems.
+- [**Inline Keyword**](https://github.com/Beorlor/C-tips/tree/main/Inline_Keyword): Usage of `inline` for optimizing function calls.
+- [**Process Control Examples**](https://github.com/Beorlor/C-tips/tree/main/Process_Control): Demonstrations of process creation and management.
+- [**Static Variable**](https://github.com/Beorlor/C-tips/tree/main/Static_Variable): Understanding and using static variables in C.
+- [**Union Usage**](https://github.com/Beorlor/C-tips/tree/main/Union_Usage): Utilizing unions for hardware register representation or simulating polymorphism.
+- [**Variadic Functions**](https://github.com/Beorlor/C-tips/tree/main/Variadic_Functions): Examples of functions handling variable number of arguments, similar to `printf`.
+- [**Volatile Keyword**](https://github.com/Beorlor/C-tips/tree/main/Volatile_Keyword): Explaining the use of `volatile` for special variable conditions.
 
 ## Future Topics (To-Do)
 - **Malloc**: Recreating the Malloc and Free functions for custom memory management.
