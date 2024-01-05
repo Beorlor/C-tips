@@ -16,8 +16,12 @@ This repository, `ProcessControlExamples`, contains a collection of C programs d
 
 To run these examples, clone the repository and compile each program with a C compiler like `gcc`. For example:
 
+```bash
 gcc -o fork fork.c
+```
+```bash
 ./fork
+```
 
 Replace `fork.c` with the name of the file you wish to compile and run.
 
@@ -26,17 +30,11 @@ Replace `fork.c` with the name of the file you wish to compile and run.
 - A Unix-like operating system (Linux, macOS, etc.)
 - GCC or another C compiler installed on your system
 
-## Contributing
-
-Contributions to this repository are welcome. Please feel free to submit pull requests or open issues to discuss proposed changes or additions.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## Acknowledgements
 
 This repository is created for educational purposes and to provide practical examples for students and programmers learning about process control in Unix-like operating systems.
+
+Special thanks to [Herbie Vine](https://twitter.com/herbievine) for the examples and [Reactive](https://reactive.so/post/42-a-comprehensive-guide-to-pipex) for the comprehensive guide to pipex.
 
 ---
 
