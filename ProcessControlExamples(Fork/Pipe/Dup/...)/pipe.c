@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
  
 int main()
 {
@@ -61,6 +62,7 @@ int main()
 		read(fd[0], buffer, 13);
 		close(fd[0]); // close the read end of the pipe
 		printf("Message from child: '%s'\n", buffer);
+		wait(NULL); //wait for the child process to end
 		exit(EXIT_SUCCESS);
 	}
 }

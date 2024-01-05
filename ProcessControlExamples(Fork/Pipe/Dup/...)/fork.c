@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 int main()
 {
@@ -20,7 +21,8 @@ int main()
     else
         // This block is executed by the parent process
         printf("This is the parent process. (pid: %d)\n", getpid());
-
+        int status;
+        waitpid(pid, &status, 0); //protection for zombies process
     return (0);
 }
 

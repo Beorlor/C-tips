@@ -23,6 +23,8 @@ int main(int argc, char *argv[])
     {
         printf("I am the parent process.\n");
         wait(NULL); // Parent process waits for the child to terminate
+        //int status;
+        //waitpid(pid, &status, 0);
         printf("Child process terminated after a 2s delay.\n");
     }
 
