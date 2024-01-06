@@ -26,4 +26,5 @@ int main()
  * - Upon successful execution of execve, the current process is replaced by the new program,
  *   so any code following execve will not be executed unless execve fails.
  * - The args array includes the command and its arguments, followed by a NULL pointer as the last element.
+ * - So the goal is to use execve in a child process.
  */
