@@ -17,6 +17,14 @@ Run `make` to create a static library (`libhashtable.a`), a dynamic library (`li
 make
 ```
 
+Including the Hashtable Library in Your Project
+After building the project, to use the Hashtable library in your C project, you need to include the header file in your source code. Add the following line at the beginning of your source files where you intend to use the Hashtable functionality:
+
+```c
+#include "hashtable.h"
+```
+This inclusion is essential for the compiler to recognize the functions, data types, and structures provided by the Hashtable library.
+
 ## Usage
 
 ### Test Program
