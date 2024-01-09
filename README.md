@@ -15,7 +15,7 @@ The [**Hashtable**](https://github.com/Beorlor/C-tips/tree/main/Hashtable) secti
 - [**Single Bit Manipulation and Bitmaps**](https://github.com/Beorlor/C-tips/tree/main/Bit_Manipulation): Techniques for efficient bit-level operations.
 - [**Dynamic Programming**](https://github.com/Beorlor/C-tips/tree/main/Dynamic_Programming): Strategies for solving complex problems by breaking them down into simpler subproblems.
 - [**Inline Keyword**](https://github.com/Beorlor/C-tips/tree/main/Inline_Keyword): Usage of `inline` for optimizing function calls.
-- [**Process Control Examples**](https://github.com/Beorlor/C-tips/tree/main/Process_Control): Demonstrations of process creation and management.
+- [**Process Control Examples**](https://github.com/Beorlor/C-tips/tree/main/ProcessControlExamples): Demonstrations of process creation and management.
 - [**Static Variable**](https://github.com/Beorlor/C-tips/tree/main/Static_Variable): Understanding and using static variables in C.
 - [**Union Usage**](https://github.com/Beorlor/C-tips/tree/main/Union_Usage): Utilizing unions for hardware register representation or simulating polymorphism.
 - [**Variadic Functions**](https://github.com/Beorlor/C-tips/tree/main/Variadic_Functions): Examples of functions handling variable number of arguments, similar to `printf`.
