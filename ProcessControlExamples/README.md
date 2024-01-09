@@ -11,6 +11,7 @@ This repository, `ProcessControlExamples`, contains a collection of C programs d
 - `unlink.c`: Demonstrates file deletion and link count manipulation using `unlink()`.
 - `wait_sleep.c`: Provides an example of process synchronization using `wait()` and process pausing with `sleep()`.
 - `access.c`: Checks file access permissions using `access()`.
+- `handle_signal.c`: Shows how to handle Unix signals within a process, such as overriding the default action for `SIGTSTP` and `SIGCONT`.
 - `example.c`: Demonstrates executing a command (`ping`) in a child process, capturing its output in the parent process using a pipe, and process synchronization with `waitpid()`.
 
 ## Getting Started
