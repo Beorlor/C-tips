@@ -7,8 +7,13 @@
  * - SIGTSTP (usually triggered by Ctrl+Z) can have its default behavior (which is to pause a program)
  *   overridden by a custom handler. In this program, we set up such a handler that prevents the program
  *   from being paused, instead printing a message that stopping is not allowed.
- * - SIGCONT, on the other hand, cannot have its default behavior of resuming a program overridden; 
+ * - SIGCONT, on the other hand, cannot have its default behavior of resuming a program overridden;
  *   additional behaviors can be added, but the continuation of the program cannot be stopped.
+ * - SIGURS1: User-defined signal 1 is typically used for custom purposes in programs. It can be
+ *   caught and handled, or ignored. This program could implement a custom handler for SIGURS1 to
+ *   perform specific tasks or signal internal events.
+ * - SIGURS2: User-defined signal 2 is similar to SIGURS1 and is also used for custom, application-defined purposes.
+ *   It provides an additional signal option that can be used when more than one user-defined signal is needed.
  * - The program prompts the user to enter a number, reads it, multiplies it by 5, and prints the result.
  * - The third argument of `sigaction`, when not NULL, points to a `struct sigaction` where the previous
  *   action for the signal is saved. This can be used to restore the old signal action later if needed.
@@ -24,13 +29,13 @@ void handle_sigtstp(int sig) {
 int main(int argc, char* argv[]) {
     // Set up the sigaction structure to specify the new action for SIGTSTP.
     struct sigaction sa, old_sa;
-    
+
     // Assign the handler function for SIGTSTP.
     sa.sa_handler = &handle_sigtstp;
-    
+
     // Set SA_RESTART so system calls interrupted by this signal are restarted.
     sa.sa_flags = SA_RESTART;
-    
+
     // Change the action for SIGTSTP and save the old action in old_sa.
     if (sigaction(SIGTSTP, &sa, &old_sa) == -1) {
         perror("Could not set custom SIGTSTP handler");
@@ -42,7 +47,7 @@ int main(int argc, char* argv[]) {
     printf("Input number: "); // Prompt for input.
     scanf("%d", &x); // Read an integer from the input.
     printf("Result %d * 5 = %d\n", x, x * 5); // Print the result of x multiplied by 5.
-    
+
     // Restore the original action for SIGTSTP before exiting.
     if (sigaction(SIGTSTP, &old_sa, NULL) == -1) {
         perror("Could not restore original SIGTSTP handler");
