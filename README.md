@@ -24,11 +24,12 @@ The [**Hashtable**](https://github.com/Beorlor/C-tips/tree/main/Hashtable) secti
 ## Future Topics (To-Do)
 - **Malloc**: Recreating the Malloc and Free functions for custom memory management.
 - **Threads**: Basic concepts and examples of multithreading in C.
+- **string**: Basic file reading and writing
 - **Makefile**: Comprehensive guide for creating and managing makefiles.
 - **Library Static and Dynamic**: Detailed instructions on creating and using both static and dynamic libraries.
 - **Networking**: Practical tips for network programming in C.
 - **Enum**: Best practices for using enums effectively.
-- **Sort Algorithms**: Detailed implementation and analysis of various sorting algorithms.
+- **Sort Algorithms**: Detailed implementation and analysis of various sorting algorithms. (quick sort, merge sort, heap sort)
 - **Daemon**: Techniques for creating and managing daemon processes.
 - **Telnet**: Deep dive into the Telnet protocol and its practical applications.
 - **SSH**: Exploring Secure Shell (SSH) for secure communications and programming tips.
