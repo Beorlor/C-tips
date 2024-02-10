@@ -22,6 +22,9 @@ The [**Hashtable**](https://github.com/Beorlor/C-tips/tree/main/Hashtable) secti
 - [**Volatile Keyword**](https://github.com/Beorlor/C-tips/tree/main/Volatile_Keyword): Explaining the use of `volatile` for special variable conditions.
 
 ## Future Topics (To-Do)
+
+Bitwise RGB in bit mapipulation
+
 - **Malloc**: Recreating the Malloc and Free functions for custom memory management.
 - **Threads**: Basic concepts and examples of multithreading in C.
 - **string**: Basic file reading and writing
