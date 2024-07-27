@@ -24,6 +24,8 @@ The [**Hashtable**](https://github.com/Beorlor/C-tips/tree/main/Hashtable) secti
 ## Future Topics (To-Do)
 
 Bitwise RGB in bit mapipulation
+clean web serv
+optimisation (vector / parralelism / flag)
 
 - **Malloc**: Recreating the Malloc and Free functions for custom memory management.
 - **Threads**: Basic concepts and examples of multithreading in C.
